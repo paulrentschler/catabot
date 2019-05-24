@@ -1,0 +1,804 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>myStop</title>
+
+    <!-- HANDLE MOBILE REDIRECT BASED ON SCREEN IF APPLICABLE -->
+    <script src="/InfoPoint/Scripts/myavail/MyAvail.Device.js"></script>
+    <script>MyAvailDevice.init();</script>
+
+
+    <link href="/InfoPoint/Content/themes/base/jquery.ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/InfoPoint/Content/desktop/Layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="/InfoPoint/Scripts/kendoui/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="/InfoPoint/Scripts/kendoui/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="/InfoPoint/Scripts/qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+    <link href="/InfoPoint/Scripts/afarkas/styles.mod.css" rel="stylesheet" type="text/css" />
+
+        <link href="/InfoPoint/Content/desktop/Reset.min.css" rel="stylesheet" media="screen"/>
+        <link href="/InfoPoint/Content/desktop/Site.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/InfoPoint/Content/desktop/Responsive.min.css" rel="stylesheet" type="text/css" />
+        <link href="/InfoPoint/Content/desktop/Kendo.min.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="/InfoPoint/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="/InfoPoint/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- give life to HTML5 objects in IE -->
+    <!--[if lte IE 8]><script src="/InfoPoint/Scripts/html5.js" type="text/javascript"></script><![endif]-->
+    <!-- js HTML class -->
+    <script>        (function (H) { H.className = H.className.replace(/\bno-js\b/, 'js') })(document.documentElement)</script>
+</head>
+<body>
+
+<div class="stop-dialog">
+    <div id="map_stop_popup" class="map-popup">
+
+        <div class="content" data-role="content">
+<a href="https://maps.google.com?daddr=40.80094,-77.86477&dirflg=w&saddr=Current+Location" class="walking" target="_blank" onclick=' window.open(this.href);return false; '>
+    <img src="/InfoPoint/Content/images/walkingIcon.png"/>
+</a>
+    <h2 class="heading">Curtin Rd at Visual Arts Building - Stop 356</h2>
+    <p id="StopID" hidden>356</p>
+
+
+
+    <!-- ONLY GET ROUTES THAT ARE SELECTED IF APPLICABLE -->
+
+    <!-- GET SELECTED LOOP SERVICES IF APPLICABLE -->
+
+    <!-- GET ROUTES THAT ARE NOT SELECTED IF APPLICABLE -->
+            <div id="other_routes" class="departures">
+                <div class="heading">Scheduled Departures - Other Routes</div>
+                <div class="grid-wrapper">
+<table class="departures-grid">
+    <thead>
+        <tr>
+            <th data-field="Route">
+                &nbsp;&nbsp;&nbsp;Route
+            </th>
+            <th data-field="Direction">
+                Dir
+            </th>
+                <th data-field="Bus">
+                    Bus
+                </th>
+            <th data-field="Destination">
+                Destination
+            </th>
+                <th data-field="SDT" class="grid-header-sdt">
+                    SDT
+                </th>
+            <th data-field="EDT" class="grid-header-edt">
+                EDT
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #669966; color: #000000;">
+                                    B
+                                </div>
+                            </div>
+                        B - Boalsburg
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">Done</div>
+                </td>
+                    <td>
+                    </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #669966; color: #000000;">
+                                    B
+                                </div>
+                            </div>
+                        B - Boalsburg
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+5                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Boalsburg</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(4, 'O', '5/24/2019 5:14:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:14 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell late">
+5:18 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #009999; color: #FFFFFF;">
+                                    C
+                                </div>
+                            </div>
+                        C - Houserville
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+26                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Campus and Downtown</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(7, 'I', '5/24/2019 6:05:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">6:05 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+6:05 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #009999; color: #FFFFFF;">
+                                    C
+                                </div>
+                            </div>
+                        C - Houserville
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+26                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Houserville</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(7, 'O', '5/24/2019 5:07:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:07 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:07 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF9999; color: #06060D;">
+                                    HM
+                                </div>
+                            </div>
+                        HM - Toftrees/Nittany Mall
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+47                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Nittany Mall</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(60, 'O', '5/24/2019 4:31:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">4:31 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell late">
+4:38 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF9999; color: #06060D;">
+                                    HM
+                                </div>
+                            </div>
+                        HM - Toftrees/Nittany Mall
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+3                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Nittany Mall</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(60, 'O', '5/24/2019 5:11:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:11 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:11 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF9999; color: #06060D;">
+                                    HM
+                                </div>
+                            </div>
+                        HM - Toftrees/Nittany Mall
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+30                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Nittany Mall</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(60, 'O', '5/24/2019 5:51:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:51 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:51 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #CC3300; color: #000000;">
+                                    XB
+                                </div>
+                            </div>
+                        XB - Bellefonte
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall Campus and Downtown</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(49, 'I', '5/24/2019 7:50:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">7:50 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+7:50 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #CC3300; color: #000000;">
+                                    XB
+                                </div>
+                            </div>
+                        XB - Bellefonte
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall Campus and Downtown</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(49, 'I', '5/24/2019 10:44:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">10:44 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+10:44 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #CC3300; color: #000000;">
+                                    XB
+                                </div>
+                            </div>
+                        XB - Bellefonte
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+97                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall and Bellefonte</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(49, 'O', '5/24/2019 5:08:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:08 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:08 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #CC3300; color: #000000;">
+                                    XB
+                                </div>
+                            </div>
+                        XB - Bellefonte
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall and Bellefonte</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(49, 'O', '5/24/2019 6:56:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">6:56 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+6:56 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #66FF99; color: #000000;">
+                                    XG
+                                </div>
+                            </div>
+                        XG - Pleasant Gap
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall Campus and Downtown</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(50, 'I', '5/24/2019 6:04:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">6:04 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+6:04 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #66FF99; color: #000000;">
+                                    XG
+                                </div>
+                            </div>
+                        XG - Pleasant Gap
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall Campus and Downtown</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(50, 'I', '5/24/2019 7:04:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">7:04 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+7:04 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #66FF99; color: #000000;">
+                                    XG
+                                </div>
+                            </div>
+                        XG - Pleasant Gap
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+77                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall and Pleasant Gap</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(50, 'O', '5/24/2019 5:07:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:07 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell late">
+5:10 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #66FF99; color: #000000;">
+                                    XG
+                                </div>
+                            </div>
+                        XG - Pleasant Gap
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" style="display: none;">
+                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall and Pleasant Gap</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(50, 'O', '5/24/2019 5:58:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:58 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:58 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #66FF99; color: #000000;">
+                                    XG
+                                </div>
+                            </div>
+                        XG - Pleasant Gap
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+77                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To Mall and Pleasant Gap</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(50, 'O', '5/24/2019 8:52:30 PM', $(this).closest('div.content').find('#StopID').text()); return false;">8:52 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+8:52 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF0000; color: #FFFFFF;">
+                                    RL
+                                </div>
+                            </div>
+                        Red Link
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+29                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To West Campus</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(51, 'I', '5/24/2019 4:47:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">4:47 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+4:47 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF0000; color: #FFFFFF;">
+                                    RL
+                                </div>
+                            </div>
+                        Red Link
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+29                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To West Campus</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(51, 'I', '5/24/2019 5:37:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:37 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+5:37 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF0000; color: #FFFFFF;">
+                                    RL
+                                </div>
+                            </div>
+                        Red Link
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-i">
+                        I</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+91                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To West Campus</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(51, 'I', '5/24/2019 6:02:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">6:02 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell ontime">
+6:02 PM
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="route-cell">
+                            <div class="route-id-container">
+                                <div class="route-abbr" style="background-color: #FF0000; color: #FFFFFF;">
+                                    RL
+                                </div>
+                            </div>
+                        Red Link
+                    </div>
+                </td>
+                <td>
+                    <div class="direction-cell dir dir-o">
+                        O</div>
+                </td>
+                    <td>
+                        <div class="bus-cell" >
+91                        </div>
+                    </td>
+                <td>
+                    <div class="destination-cell">To West Campus</div>
+                </td>
+                    <td>
+                            <div class="sdt-cell">
+                                <a href="#" onclick="MyAvail.Alert.createAlertFromStopDetail(51, 'O', '5/24/2019 5:12:00 PM', $(this).closest('div.content').find('#StopID').text()); return false;">5:12 PM</a>
+
+                            </div>
+                    </td>
+                <td>
+                        <div class="edt-cell late">
+5:13 PM
+                        </div>
+                </td>
+            </tr>
+    </tbody>
+</table>
+                </div>
+            </div>
+
+    <!-- GET UNSELECTED LOOP SERVICES IF APPLICABLE -->
+            <div class="last-updated">
+            <span class="heading">Last Updated:</span>
+            05/24/2019 04:38 PM
+        </div>
+
+        </div>
+
+        <div align="center">
+
+            <h3 class="heading">
+                <a href="https://realtime.catabus.com/InfoPoint/">Go To Main Page</a>
+            </h3>
+        </div>
+    </div>
+</div>
+
+    <script src="/InfoPoint/Scripts/kendoui/js/jquery.min.js" type="text/javascript"> </script>
+    <script src="/InfoPoint/Scripts/kendoui/js/kendo.web.min.js" type="text/javascript"> </script>
+
+    <!-- START MYAVAIL JS NAMESPACE -->
+        <script src="/InfoPoint/Scripts/myavail/MyAvail.min.js" type="text/javascript"> </script>
+        <script src="/InfoPoint/Scripts/myavail/desktop/MyAvail.Stop.min.js" type="text/javascript"> </script>
+
+    <script type="text/javascript">
+        //POPULATE MYAVAIL PROPERTIES FROM SERVER SIDE WHEN NECESSARY
+        MyAvail.baseUrl = '/InfoPoint/';
+        MyAvail.transitAuthorityConfig = {"BaseUrl":null,"KmlUrl":"Resources/Traces/","ImageUrl":"Resources/Images/","VehicleRefreshInterval":20,"StartLatitude":"40.785432","StartLongitude":"-77.900991","StartZoom":"10","BitlyUsername":"myavail","BitlyApiKey":"R_85cbf2c198a3d7e0eacbf91296856f9a","AnalyticsCode":"UA-50742023-3","EnableSsl":true,"SslDomain":"realtime.catabus.com:443","EnableTripPlanning":true,"EnableSms":true,"ApiUrl":"","ApiKeyHeader":"","ApiKey":"","SouthWestPoint":"40.719995, -78.04226","NorthEastPoint":"40.921745, -77.73729"};
+        MyAvail.fullyQualifiedApplicationPath = 'https://realtime.catabus.com:443/InfoPoint/';
+    </script>
+
+    <!-- END MYAVAIL JS NAMESPACE -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', MyAvail.transitAuthorityConfig.AnalyticsCode]);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>
