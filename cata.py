@@ -145,7 +145,7 @@ class Cata(object):
             else:
                 self.last_updated = obj
 
-    def departures(self, stop):
+    def departures(self, stop, route=None):
         results = []
         content = requests.get(self.url.format(stop=stop))
         soup = BeautifulSoup(content.text, 'html.parser')
@@ -155,5 +155,9 @@ class Cata(object):
         for row in rows:
             departure = Departure(row)
             if departure.is_valid:
-                results.append(departure)
+                if route is not None:
+                    if departure.route == route:
+                        results.append(departure)
+                else:
+                    results.append(departure)
         return results
