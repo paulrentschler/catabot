@@ -1,18 +1,29 @@
-from bs4 import BeautifulSoup
-
-import requests
+from cata import Cata
 
 
 route = 'B'
-stops = [356, ]
-stop_status_url = 'https://realtime.catabus.com/InfoPoint/Stops/Stop/{stop}'
+stops = [356, 565, 1]
 
-content = requests.get(stop_status_url.format(stop=stops[0])).text
-soup = BeautifulSoup(content, 'html.parser')
-departures_table = soup.find('table', class_='departures-grid')
-departures_body = departures_table.find('tbody')
-departures = departures_body.find_all('tr')
-for departure in departures:
-    route_abbr = departure.find(class_='route-abbr')
-    print(route_abbr.text.strip())
-import pdb; pdb.set_trace()
+cata = Cata()
+for stop in stops:
+    results = {}
+    items = cata.departures(stop)
+    for item in items:
+        route = item.route
+        if route not in results.keys():
+            results[route] = []
+        results[route].append(item)
+    print('\n')
+    print('last updated: {}'.format(cata.last_updated))
+    for route, departures in results.items():
+        print('{} -- {}'.format(
+            departures[0].route_name,
+            departures[0].bus.title(),
+        ))
+        for d in departures:
+            print('  - {}/{} {}'.format(
+                d.scheduled,
+                d.estimated,
+                d.delta_label,
+            ))
+
