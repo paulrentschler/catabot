@@ -36,13 +36,7 @@ class Notify(object):
                         d.delta_label,
                     ))
 
-    def teams(self):
-        try:
-            from local_settings import TEAMS_URL
-        except ImportError:
-            print('ERROR! TEAMS_URL is not defined in local_settings.py')
-            return
-        url = TEAMS_URL
+    def teams(self, channel_url):
         data = {
             '@type': 'MessageCard',
             '@context': 'http://schema.org/extentions',
@@ -69,10 +63,15 @@ class Notify(object):
                 }]
             }
             data['sections'].append(section)
-        requests.post(url=url, json=data)
+        requests.post(url=channel_url, json=data)
 
 
 if __name__ == '__main__':
-    notifier = Notify([356, 565])
-    notifier.cli()
-    # notifier.teams()
+    notifier = Notify([356, 565], 'B')
+    # notifier.cli()
+    try:
+        from local_settings import TEAMS_URL
+    except ImportError:
+        print('ERROR! TEAMS_URL is not defined in local_settings.py')
+    else:
+        notifier.teams(TEAMS_URL)
