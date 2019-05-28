@@ -21,8 +21,8 @@ class Departure(object):
             self.route = None
         else:
             try:
-                self.bus_number = html.find(class_='bus-cell').text.strip()
-            except AttributeError:
+                self.bus_number = int(html.find(class_='bus-cell').text.strip())
+            except (AttributeError, ValueError):
                 self.bus_number = None
             for field in ('sdt', 'edt'):
                 class_ = '{}-cell'.format(field)
@@ -37,11 +37,8 @@ class Departure(object):
     def bus(self):
         if self.bus_number is None:
             return 'n/a'
-        try:
-            bus = int(self.bus_number)
-        except (TypeError, ValueError):
-            return self.bus_number
         else:
+            bus = self.bus_number
             if bus < 10:
                 desc = 'newer big '
             elif bus >= 30 and bus < 40:
