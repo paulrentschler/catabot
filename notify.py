@@ -30,7 +30,7 @@ class Notify(object):
                     departures[0].bus.title(),
                 ))
                 for d in departures:
-                    print('  - {}/{} {}'.format(
+                    print('  - {}/{} ({})'.format(
                         d.scheduled,
                         d.estimated,
                         d.delta_label,

@@ -66,11 +66,11 @@ class Departure(object):
     @property
     def delta_label(self):
         if self.is_early:
-            return '(early: {} min)'.format(self.delta)
+            return 'early: {} min'.format(self.delta)
         elif self.is_late:
-            return '(LATE: {} min)'.format(self.delta)
+            return 'LATE: {} min'.format(self.delta)
         else:
-            return ''
+            return 'on-time'
 
     @property
     def estimated(self):
