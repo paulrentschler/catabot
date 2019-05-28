@@ -151,7 +151,10 @@ class Cata(object):
         soup = BeautifulSoup(content.text, 'html.parser')
         self._get_last_updated(soup)
         table = soup.find('table', class_='departures-grid')
-        rows = table.tbody.find_all('tr')
+        try:
+            rows = table.tbody.find_all('tr')
+        except AttributeError:
+            return results
         for row in rows:
             departure = Departure(row)
             if departure.is_valid:
