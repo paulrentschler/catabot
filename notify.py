@@ -1,5 +1,6 @@
 from cata import Cata
 
+import requests
 
 
 class Notify(object):
@@ -35,8 +36,43 @@ class Notify(object):
                         d.delta_label,
                     ))
 
+    def teams(self):
+        try:
+            from local_settings import TEAMS_URL
+        except ImportError:
+            print('ERROR! TEAMS_URL is not defined in local_settings.py')
+            return
+        url = TEAMS_URL
+        data = {
+            '@type': 'MessageCard',
+            '@context': 'http://schema.org/extentions',
+            'summary': 'Incoming bus schedule',
+            'sections': [],
+        }
+        for stop, results in self.stop_departures.items():
+            departure = results[self.route][0]
+            section = {
+                'activityTitle': 'Next departure for stop {}'.format(stop),
+                'activitySubtitle': 'Last updated: {}'.format(self.cata.last_updated),
+                'facts': [{
+                    'name': 'Bus',
+                    'value': departure.bus.tilte(),
+                }, {
+                    'name': 'Scheduled',
+                    'value': departure.scheduled,
+                }, {
+                    'name': 'Estimated',
+                    'value': departure.estimated,
+                }, {
+                    'name': 'Status',
+                    'value': departure.delta_label,
+                }]
+            }
+            data['sections'].append(section)
+        requests.post(url=url, json=data)
+
 
 if __name__ == '__main__':
     notifier = Notify([356, 565])
     notifier.cli()
-
+    # notifier.teams()
