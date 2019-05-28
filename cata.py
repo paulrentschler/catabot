@@ -161,3 +161,10 @@ class Cata(object):
                 else:
                     results.append(departure)
         return results
+
+    def stop_name(self, stop):
+        if stop == 356:
+            return 'Curtin Rd at Visual Arts Building - Stop 356'
+        elif stop == 565:
+            return 'E Beaver Ave at Beaver Hill Apts - Stop 565'
+        return 'Stop {}'.format(stop)

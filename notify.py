@@ -22,7 +22,7 @@ class Notify(object):
     def cli(self):
         for stop, results in self.stop_departures.items():
             print('\n')
-            print('Stop: {}'.format(stop))
+            print('Stop: {}'.format(self.cata.stop_name(stop)))
             print('last updated: {}'.format(self.cata.last_updated))
             for route, departures in results.items():
                 print('{} -- {}'.format(
@@ -46,11 +46,11 @@ class Notify(object):
         for stop, results in self.stop_departures.items():
             departure = results[self.route][0]
             section = {
-                'activityTitle': 'Next departure for stop {}'.format(stop),
+                'activityTitle': 'Next departure for {}'.format(self.cata.stop_name(stop)),
                 'activitySubtitle': 'Last updated: {}'.format(self.cata.last_updated),
                 'facts': [{
                     'name': 'Bus',
-                    'value': departure.bus.tilte(),
+                    'value': departure.bus.title(),
                 }, {
                     'name': 'Scheduled',
                     'value': departure.scheduled,
