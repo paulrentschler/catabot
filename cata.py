@@ -39,11 +39,11 @@ class Departure(object):
             return 'n/a'
         else:
             bus = self.bus_number
-            if bus >= 30 and bus <= 36:
+            if bus >= 32 and bus <= 36:
                 desc = 'rumble '
             elif bus < 40:
                 desc = 'newer big '
-            elif bus >= 40 and bus <= 60:
+            elif bus <= 60:
                 desc = 'newest big '
             elif bus >= 70 and bus < 80:
                 desc = 'medium '
