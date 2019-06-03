@@ -75,7 +75,10 @@ class Notify(object):
             self._print('self.edts: {}'.format(self.edts.keys()))
             self._print('existing_keys: {}'.format(existing_keys))
             for stop, results in self.stop_departures.items():
-                departure = results[self.route][0]
+                try:
+                    departure = results[self.route][0]
+                except KeyError:
+                    continue
                 key = '{}|{}|{}'.format(stop, departure.bus_number, departure.scheduled)
                 try:
                     existing_keys.remove(key)
